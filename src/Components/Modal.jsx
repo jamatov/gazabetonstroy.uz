@@ -4,11 +4,12 @@ import InputMask from "react-input-mask";
 import { toast } from "react-toastify";
 import { CHAT_ID, TOKEN } from "../Constants/index.js";
 
-export default function Form() {
+import Modal from 'react-bootstrap/Modal';
+
+export default function ModalForm(props) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998");
   const [isLoading, setIsLoading] = useState(false);
-
 
   let text = `Ismi: ${name}.%0ATelefon raqami: ${phone}.`;
 
@@ -31,35 +32,35 @@ export default function Form() {
   };
 
   return (
-    <section className='Form'>
-      <div className="container">
-       
-        <h2>Хотите получить дополнительную <br /> информацию?</h2>
-        <p>Оставьте свои данные, чтобы мы могли связаться с вами</p>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      className='ModalForm'
+    >
+      <Modal.Header closeButton>
+        <Modal.Title className='modal-tittle' id="contained-modal-title-vcenter">
+          Оставьте заявку
 
-        <form onSubmit={sendFeedback} className='form-zayavka' action="">
-          <div className='form-body'>
-            <div>
-              <h5>Ваше имя</h5>
-              <input 
-                value={name}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <form onSubmit={sendFeedback} action="">
+          <div className="row">
+            <p>Ваше имя</p>
+            <input className='col-12' value={name}
                 onChange={(e) => setName(e.target.value)}
                 name="name"
-                id="name"  type="text" placeholder='Ваше имя'/>
-            </div>
-
-            <div >
-              <h5>Ваш номер телефона</h5>
-              <InputMask value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                mask="+998 (99) 999-99-99"
-                maskChar=""
-                id="phone"
-                type="text"
-                placeholder="+998 (_) _ _ _"/>
-            </div>
-          </div>
-          <div className='button-submit'>
+                id="name"  type="text" placeholder='Ваше имя' />
+            <p>Ваш номер телефона</p>
+            <InputMask className='col-12' value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  mask="+998 (99) 999-99-99"
+                  maskChar=""
+                  id="phone"
+                  type="text"
+                  placeholder="+998 (_) _ _ _"/>
             <button disabled={isLoading}  type='submit'>
             {" "}
               {isLoading && (
@@ -67,7 +68,8 @@ export default function Form() {
               )}Отправить</button>
           </div>
         </form>
-      </div>
-    </section>
+      </Modal.Body>
+      
+    </Modal>
   )
 }

@@ -1,24 +1,35 @@
 import React from 'react'
 import logo from '../Images/about-logo.svg'
 import img from '../Images/about.png'
+import { Fade } from 'react-reveal'
 
 export default function About() {
   return (
     <section className='About'>
       <div className="container">
-        <h2>Biz haqimizda</h2>
-        <p>Bu yerdan kompaniyamiz haqida ma'lumot <br /> olishingiz mumkin</p>
+        <h2>О нас</h2> 
+        <p>Здесь вы можете найти информацию <br />о нашей компании</p>
         <div className="row">
           <div className="col-md-7">
-            <div className='about-info'>
-              <img src={logo} alt="logo" />
-              <h5>2009-yilda tashkil etilgan Ricomel Beverages kompaniyasi o‘n uch yildan ortiq vaqtdan beri O‘zbekistonda yuqori sifatli va gazsiz mevali ichimliklar yetkazib berish bilan shug‘ullanadi. Kompaniya o'zining 10 dan ortiq ta'mi bilan Dinay, NRGo Xtrim, RicoLA Traditional, RicoLA Cherry va RicoLA Ice Coffee kabi tabiiy ichimliklar ishlab chiqaradi.</h5>
-            </div>
+            <Fade left>
+              <div className='about-info'>
+                <img src={logo} alt="logo" />
+                <h5> Наша компания радует своих клиентов уже 6 лет. За наш 6-летний опыт работы мы сотрудничаем с крупными строительными компаниями, такими как: Golden House, Discovery,
+                    Magic city,
+                    Toshkent city,
+                    Akay city,
+                    Bulvard,
+                    Real house, Gidrolife, Namangan city и другие компании.</h5>
+              </div>
+            </Fade>
           </div>
           <div className="col-md-5">
-            <div>
-              <img src={img} alt="gazablock" />
-            </div>
+            <Fade right>
+              <div>
+                <img className='img2' src={img} alt="gazablock" />
+              </div>
+            </Fade>
+            
           </div>
         </div>
       </div>

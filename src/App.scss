@@ -2,7 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 
+html,
+#root,
+body {
+  overflow-x: hidden !important;
+}
 
+.container{
+  max-width: 1440px;
+}
 
 *{
   padding: 0;
@@ -19,6 +27,10 @@
     padding: 0;
   }
 }
+// .App{
+//   position: relative;
+// }
+
 
 
 
@@ -57,8 +69,12 @@
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.20);
       padding: 20px 24px;
-  
-      ul{
+      
+      .calBtn{
+        display: none;
+        // display: none;
+      }
+      .nav__menu{
         display: flex;
         gap: 28px;
   
@@ -69,7 +85,25 @@
             font-style: normal;
             font-weight: 600;
             line-height: 21px; /* 150% */
+            cursor: pointer;
           }
+
+          .active{
+            color: #F9CB28;
+          }
+        }
+      }
+
+      .nav__toggler{
+        cursor: pointer;
+        display: none;
+        z-index: 10;
+        div{
+          transition: 0.5s ease-in;
+          width: 2.5rem;
+          height: 0.2rem;
+          margin: 0.4rem;
+          background: #fff;
         }
       }
   
@@ -90,9 +124,9 @@
   
   .header-info{
     .header-info__info{
-      display: flex;
-      height: 70vh;
-      align-items: center;
+      display: flex ;
+      height: 70vh ;
+      align-items: center !important;
 
       .text-center{
         text-align: center;
@@ -136,7 +170,7 @@
 }
 
 .Primushestva{
-  padding: 80px 0;
+  padding: 80px 10px;
   background: #FFD12E;
 
   .p-tittle{
@@ -158,10 +192,24 @@
     line-height: 20.8px; /* 130% */
     margin-bottom: 48px;
   }
+  
+  .row2{
+    margin: 0;
+    padding: 0;
+  }
 
   .row{
     .h100{
       height: 100% !important;
+    }
+
+    .card{
+      transition: 0.2s ease-in;
+
+      &:hover{
+        transform: scale(1.01);
+        transition: 0.2s ease-in;
+      }
     }
 
     .card1{
@@ -177,7 +225,7 @@
         display: flex;
         justify-content: end;
         img{
-          width: 400px;
+          max-width: 400px;
           height: 332px;
         }
       }
@@ -210,10 +258,14 @@
       border-radius: 24px;
       background: #FFE7DB;
 
-      img{
+      .img{
         position: absolute;
         right: 0;
         bottom: 0;
+      }
+
+      .img2{
+        display: none;
       }
       .card-body{
         padding: 32px;
@@ -338,6 +390,14 @@
       border-radius: 16px;
       border: 1px solid #EAEAEA;
       background: #FFF;
+      transition: 0.2s ease-in;
+
+
+      &:hover{
+        transform: scale(1.01);
+        transition: 0.2s ease-in;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+      }
 
       .size{
         border-radius: 8px;
@@ -393,6 +453,14 @@
           font-style: normal;
           font-weight: 600;
           line-height: 20px; /* 133.333% */
+          transition: 0.2s ease-in;
+
+
+          &:hover{
+            background: #1E222E;
+            color: #fff;
+            transition: 0.2s ease-in;
+          }
         }
       }
     }
@@ -442,6 +510,10 @@
         font-weight: 400;
         line-height: 28px; /* 175% */
       }
+    }
+
+    .img2{
+      width: 100%;
     }
   }
 }
@@ -547,6 +619,9 @@
       font-style: normal;
       font-weight: 400;
       line-height: 16.32px; /* 140.387% */
+      a{
+        color: #F9CB28;
+      }
     }
   }
 
@@ -560,15 +635,67 @@
 
     li{
       a{
-        color: #FFF;
+        color: #FFF !important;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
         line-height: 21px; /* 150% */
+        cursor: pointer;
       }
     }
   }
 
+}
+
+.ModalForm{
+  .modal-tittle{
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 83.333% */
+  }
+
+  form{
+    padding: 0 34px;
+    p{
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 133.333% */
+      margin-bottom: 6px;
+    }
+
+    input{
+      display: flex;
+      padding: 14px 16px;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 12px;
+      border: 1px solid #EAEAEA;
+      margin-bottom: 16px;
+    }
+
+    button{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      background: #1E222E;
+      padding: 12px 16px;
+      color: #FFF;
+      text-align: center;
+
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 133.333% */
+    }
+  }
 }
 
 
